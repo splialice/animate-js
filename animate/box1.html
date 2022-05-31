@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+        }
+        span {
+            position: absolute;
+            left: 0;
+            top: 300px;
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: red
+        }
+    </style>
+
+</head>
+<body>
+    <button>烈火拔刀</button>
+    <div></div>
+    <span>brave dragon</span>
+    <script>
+        function animate(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function() {
+            if(obj.offsetLeft>=target){
+                //停止定时器
+                clearInterval(timer);
+            }
+            obj.style.left = obj.offsetLeft + 2 + 'px'; 
+        },30);
+        }
+       var div = document.querySelector('div');
+       var span = document.querySelector('span');
+       var btn = document.querySelector('button');
+       animate(div,300);
+       btn.addEventListener('click',function(){
+           animate(span, 200)
+       })
+    </script>
+</body>
+</html>
